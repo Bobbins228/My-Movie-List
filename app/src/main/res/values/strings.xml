@@ -1,3 +1,41 @@
 <resources>
+    <string name="MovieList">Movie Catalogue</string>
+    <string name="AddMovie">Add Movie</string>
+
+    <string name="about">About Us</string>
+    <string name="about_title">My Movie List</string>
+    <string name="about_message">This app is a work in progress movie management app that people can use for their movie watch lists.</string>
+
+    <string name="action_share">Share</string>
+    <string name="action_send">Send</string>
+    <string name="group_communicate">Communicate</string>
+    <string name="nav_header_title">My Movie List</string>
+    <string name="nav_header_subtitle">ilikemovies@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+
     <string name="app_name">My Movie List</string>
+    <string name="add_director">Please add a Director</string>
+    <string name="add_release_date">Please add a Release Date</string>
+    <string name="button_addMovie">Add Movie</string>
+    <string name="hint_movieTitle">Movie Title</string>
+    <string name="hint_movieGenre">Genre</string>
+    <string name="hint_movieDirector">Director</string>
+    <string name="menu_addMovie">Add</string>
+    <string name="menu_cancelMovie">Cancel</string>
+    <string name="enter_movie_title">Please Enter a Movie Title</string>
+    <string name="enter_movie_genre">Please Enter a Movie Genre</string>
+    <string name="enter_movie_poster">Please Add a Poster</string>
+    <string name="save_movie">Save Movie</string>
+    <string name="button_addImage">Add Poster</string>
+    <string name="select_movie_image">Select Movie Poster</string>
+    <string name="change_movie_image">Change Poster</string>
+    <string name="movie_image">movie poster</string>
+    <string name="button_location">Set Location</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="menu_deleteMovie">Delete</string>
+    <string name="search_title">Find a Movie</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
