@@ -53,7 +53,7 @@
             android:layout_toEndOf="@+id/imageIcon" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/deleteButton"
+            android:id="@+id/item_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/movieReleaseDate"
@@ -71,7 +71,7 @@
             android:layout_marginLeft="17dp"
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/imageIcon"
-            android:layout_toRightOf="@id/deleteButton"
+            android:layout_toRightOf="@id/item_delete"
             android:clickable="true"
             app:srcCompat="@drawable/ic_baseline_edit_24"
             tools:ignore="SpeakableTextPresentCheck" />

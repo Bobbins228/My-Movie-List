@@ -10,9 +10,10 @@ import com.mymovielist.databinding.FragmentMovieListBinding
 import com.mymovielist.main.MyMovieListApp
 import com.mymovielist.R
 import com.mymovielist.adapters.MovieListAdapter
+import com.mymovielist.models.MovieListModel
 
 class MovieListFragment : Fragment() {
-
+    var movie = MovieListModel()
     lateinit var app: MyMovieListApp
     private var _fragBinding: FragmentMovieListBinding? = null
     private val fragBinding get() = _fragBinding!!
