@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mymovielist.R
 import com.mymovielist.databinding.CardMovieBinding
+import com.mymovielist.helpers.readImageFromPath
 
 import com.mymovielist.models.MovieListModel
 
@@ -32,7 +33,9 @@ class MovieListAdapter constructor(private var movies: List<MovieListModel>)
             binding.genre.text = movie.genre
             binding.director.text = movie.director
             binding.movieReleaseDate.text = releaseDate
-            binding.imageIcon.setImageResource(R.mipmap.ic_launcher_round)
+            binding.imageIcon.setImageBitmap(readImageFromPath(itemView.context, movie.image))
+
+
         }
     }
 }
