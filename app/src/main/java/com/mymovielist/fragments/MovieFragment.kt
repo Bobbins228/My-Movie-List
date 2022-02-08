@@ -61,9 +61,9 @@ class MovieFragment : Fragment() {
 
         }
         layout.addMovieButton.setOnClickListener {
-            val title = fragBinding.title.toString()
-            val genre = fragBinding.genre.toString()
-            val director = fragBinding.director.toString()
+            val title = fragBinding.title.text.toString()
+            val genre = fragBinding.genre.text.toString()
+            val director = fragBinding.director.text.toString()
             val day = datePicker.dayOfMonth
             val month = datePicker.month + 1
             val year = datePicker.year
