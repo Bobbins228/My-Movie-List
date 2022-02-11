@@ -6,4 +6,9 @@
         android:orderInCategory="100"
         android:title="@string/AddMovie"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/mapFragment"
+        android:orderInCategory="100"
+        android:title="@string/movieMap"
+        app:showAsAction="never" />
 </menu>

@@ -34,8 +34,6 @@ class MovieListAdapter constructor(private var movies: List<MovieListModel>)
             binding.director.text = movie.director
             binding.movieReleaseDate.text = releaseDate
             binding.imageIcon.setImageBitmap(readImageFromPath(itemView.context, movie.image))
-
-
         }
     }
 }

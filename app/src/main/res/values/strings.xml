@@ -2,6 +2,9 @@
     <string name="MovieList">Movie Catalogue</string>
     <string name="AddMovie">Add Movie</string>
 
+    <string name="MAPS_API_KEY">YOUR_KEY_HERE</string>
+    <string name="movieMap">Cinemas near you</string>
+
     <string name="about">About Us</string>
     <string name="about_title">My Movie List</string>
     <string name="about_message">This app is a work in progress movie management app that people can use for their movie watch lists.</string>
