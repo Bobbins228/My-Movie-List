@@ -12,16 +12,9 @@
             android:id="@+id/movieListFragment"
             android:icon="@drawable/ic_baseline_menu_book_24"
             android:title="@string/MovieList" />
+        <item
+            android:id="@+id/mapFragment"
+            android:icon="@drawable/ic_baseline_theaters_24"
+            android:title="@string/movieMap" />
     </group>
-
-    <item android:title="@string/group_communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:title="@string/action_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:title="@string/action_send" />
-        </menu>
-    </item>
 </menu>

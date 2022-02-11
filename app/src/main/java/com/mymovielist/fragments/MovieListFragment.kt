@@ -11,6 +11,7 @@ import com.mymovielist.main.MyMovieListApp
 import com.mymovielist.R
 import com.mymovielist.adapters.MovieListAdapter
 import com.mymovielist.models.MovieListModel
+import org.jetbrains.anko.intentFor
 
 class MovieListFragment : Fragment() {
     var movie = MovieListModel()
@@ -39,6 +40,8 @@ class MovieListFragment : Fragment() {
 
         return root
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.movie_list_menu, menu)
