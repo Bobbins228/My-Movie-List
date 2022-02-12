@@ -1,20 +1,27 @@
 package com.mymovielist.adapters
 
+import android.app.Application
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.mymovielist.R
 import com.mymovielist.databinding.CardMovieBinding
 import com.mymovielist.helpers.readImageFromPath
+import com.mymovielist.main.MyMovieListApp
+import com.mymovielist.models.MovieJSONStore
+import org.jetbrains.anko.toast
 
 import com.mymovielist.models.MovieListModel
+import com.mymovielist.models.MovieListStore
+import timber.log.Timber
 
 class MovieListAdapter constructor(private var movies: List<MovieListModel>)
-    : RecyclerView.Adapter<MovieListAdapter.MainHolder>() {
-
+    : RecyclerView.Adapter<MovieListAdapter.MainHolder>(){
+    //private lateinit var app: MyMovieListApp
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         val binding = CardMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
         return MainHolder(binding)
     }
 
@@ -25,8 +32,7 @@ class MovieListAdapter constructor(private var movies: List<MovieListModel>)
 
     override fun getItemCount(): Int = movies.size
 
-    inner class MainHolder(val binding : CardMovieBinding) : RecyclerView.ViewHolder(binding.root) {
-
+    inner class MainHolder( val binding : CardMovieBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(movie: MovieListModel) {
             val releaseDate = movie.day.toString() + "/" + movie.month.toString() + "/" + movie.year.toString()
             binding.title.text = movie.title
@@ -34,6 +40,14 @@ class MovieListAdapter constructor(private var movies: List<MovieListModel>)
             binding.director.text = movie.director
             binding.movieReleaseDate.text = releaseDate
             binding.imageIcon.setImageBitmap(readImageFromPath(itemView.context, movie.image))
+            // DELETE FUNCTION KILLS APP
+            /*
+            binding.itemDelete.setOnClickListener {
+                Timber.plant(Timber.DebugTree())
+                Timber.i("Deleting movie " + movie.title)
+                app.movies.delete(movie)
+            }
+             */
         }
     }
 }

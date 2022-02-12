@@ -2,7 +2,7 @@
     <string name="MovieList">Movie Catalogue</string>
     <string name="AddMovie">Add Movie</string>
 
-    <string name="MAPS_API_KEY">YOUR_KEY_HERE</string>
+    <string name="MAPS_API_KEY">AIzaSyBSc5w4Ftp8AkVr_dKBuqtgDG9UO_IdP3c</string>
     <string name="movieMap">Cinemas near you</string>
 
     <string name="about">About Us</string>
@@ -29,6 +29,7 @@
     <string name="enter_movie_title">Please Enter a Movie Title</string>
     <string name="enter_movie_genre">Please Enter a Movie Genre</string>
     <string name="enter_movie_poster">Please Add a Poster</string>
+    <string name="enter_movie_director">Please Enter a Movie Director</string>
     <string name="save_movie">Save Movie</string>
     <string name="button_addImage">Add Poster</string>
     <string name="select_movie_image">Select Movie Poster</string>
@@ -38,7 +39,5 @@
     <string name="title_activity_maps">Map</string>
     <string name="menu_deleteMovie">Delete</string>
     <string name="search_title">Find a Movie</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

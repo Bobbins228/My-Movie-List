@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log.i
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -18,13 +19,7 @@ import com.mymovielist.helpers.readImageFromPath
 import com.mymovielist.helpers.showImagePicker
 import java.util.*
 import com.mymovielist.models.MovieListModel
-import timber.log.Timber
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.setFragmentResult
-import org.jetbrains.anko.intentFor
-import timber.log.Timber.i
-import timber.log.Timber.log
-import java.lang.Math.log
+
 
 class MovieFragment : Fragment() {
     var imageMovie = ""
@@ -35,7 +30,6 @@ class MovieFragment : Fragment() {
     private val fragBinding get() = _fragBinding!!
     private var _fragCardBinding: CardMovieBinding? = null
     private val fragCardBinding get() = _fragCardBinding!!
-    var edit = false
     //lateinit var navController: NavController
 
 
@@ -94,11 +88,6 @@ class MovieFragment : Fragment() {
 
     fun setButtonListener(layout: FragmentMovieBinding) {
 
-        fragCardBinding.editButton.setOnClickListener {
-
-        }
-
-
         fragBinding.chooseImage.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST)
         }
@@ -116,16 +105,31 @@ class MovieFragment : Fragment() {
         }
 
         layout.addMovieButton.setOnClickListener {
-
             val title = fragBinding.title.text.toString()
             val genre = fragBinding.genre.text.toString()
             val director = fragBinding.director.text.toString()
             val day = datePicker.dayOfMonth
             val month = datePicker.month + 1
             val year = datePicker.year
-            app.movies.create(MovieListModel(title = title, genre = genre,director = director, day = day, month = month, year = year, image = imageMovie))
-        }
+            if (fragBinding.title.text.isEmpty()) {
+                val toast = Toast.makeText(context,R.string.enter_movie_title,Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            else if (fragBinding.genre.text.isEmpty()) {
+                val toast = Toast.makeText(context,R.string.enter_movie_genre,Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            else if (fragBinding.director.text.isEmpty()) {
+                val toast = Toast.makeText(context,R.string.enter_movie_director,Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            else {
+                val toast = Toast.makeText(context,fragBinding.title.text.toString() + " added!",Toast.LENGTH_SHORT)
+                toast.show()
+                app.movies.create(MovieListModel(title = title, genre = genre,director = director, day = day, month = month, year = year, image = imageMovie))
+            }
 
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

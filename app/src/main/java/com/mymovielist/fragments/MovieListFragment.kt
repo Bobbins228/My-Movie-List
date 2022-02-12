@@ -6,12 +6,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mymovielist.databinding.FragmentMovieListBinding
 import com.mymovielist.main.MyMovieListApp
 import com.mymovielist.R
 import com.mymovielist.adapters.MovieListAdapter
+import com.mymovielist.databinding.CardMovieBinding
+import com.mymovielist.helpers.readImageFromPath
 import com.mymovielist.models.MovieListModel
 import org.jetbrains.anko.intentFor
+import timber.log.Timber
 
 class MovieListFragment : Fragment() {
     var movie = MovieListModel()
@@ -40,8 +44,6 @@ class MovieListFragment : Fragment() {
 
         return root
     }
-
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.movie_list_menu, menu)
