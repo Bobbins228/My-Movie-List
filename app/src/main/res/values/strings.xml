@@ -2,7 +2,7 @@
     <string name="MovieList">Movie Catalogue</string>
     <string name="AddMovie">Add Movie</string>
 
-    <string name="MAPS_API_KEY">AIzaSyBSc5w4Ftp8AkVr_dKBuqtgDG9UO_IdP3c</string>
+    <string name="MAPS_API_KEY">SECRET</string>
     <string name="movieMap">Cinemas near you</string>
 
     <string name="about">About Us</string>
