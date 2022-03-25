@@ -15,9 +15,16 @@ import org.jetbrains.anko.toast
 
 import com.mymovielist.models.MovieListModel
 import com.mymovielist.models.MovieListStore
+import com.mymovielist.ui.movieList.MovieListFragment
 import timber.log.Timber
 
-class MovieListAdapter constructor(private var movies: List<MovieListModel>)
+interface MovieClickListener {
+    fun onMovieClick(movie: MovieListModel)
+}
+class MovieListAdapter(
+    private var movies: List<MovieListModel>,
+    private val listener: MovieClickListener
+)
     : RecyclerView.Adapter<MovieListAdapter.MainHolder>(){
     //private lateinit var app: MyMovieListApp
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -40,7 +47,8 @@ class MovieListAdapter constructor(private var movies: List<MovieListModel>)
             binding.director.text = movie.director
             binding.movieReleaseDate.text = releaseDate
             binding.imageIcon.setImageBitmap(readImageFromPath(itemView.context, movie.image))
-            // DELETE FUNCTION KILLS APP
+            binding.root.setOnClickListener { listener.onMovieClick(movie) }
+        // DELETE FUNCTION KILLS APP
             /*
             binding.itemDelete.setOnClickListener {
                 Timber.plant(Timber.DebugTree())

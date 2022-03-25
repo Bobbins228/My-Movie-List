@@ -1,24 +1,23 @@
-package com.mymovielist.fragments
+package com.mymovielist.ui.movie
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log.i
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import androidx.recyclerview.widget.RecyclerView
 import com.mymovielist.databinding.FragmentMovieBinding
 import com.mymovielist.main.MyMovieListApp
 import com.mymovielist.R
 import com.mymovielist.databinding.CardMovieBinding
-import com.mymovielist.databinding.FragmentMovieListBinding
 import com.mymovielist.helpers.readImage
-import com.mymovielist.helpers.readImageFromPath
 import com.mymovielist.helpers.showImagePicker
 import java.util.*
 import com.mymovielist.models.MovieListModel
+import androidx.lifecycle.Observer
+import com.mymovielist.ui.movieList.MovieListViewModel
 
 
 class MovieFragment : Fragment() {
@@ -30,6 +29,8 @@ class MovieFragment : Fragment() {
     private val fragBinding get() = _fragBinding!!
     private var _fragCardBinding: CardMovieBinding? = null
     private val fragCardBinding get() = _fragCardBinding!!
+    //Add view model
+    private lateinit var movieViewModel: MovieViewModel
     //lateinit var navController: NavController
 
 
@@ -51,7 +52,25 @@ class MovieFragment : Fragment() {
         activity?.title = getString(R.string.app_name)
         setButtonListener(fragBinding)
         onUpdateButton(fragCardBinding)
+
+
+        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+        movieViewModel.observableStatus.observe(viewLifecycleOwner, Observer {
+                status -> status?.let { render(status) }
+        })
         return root;
+    }
+
+    private fun render(status: Boolean) {
+        when (status) {
+            true -> {
+                view?.let {
+                    //Uncomment this if you want to immediately return to Report
+                    //findNavController().popBackStack()
+                }
+            }
+            false -> Toast.makeText(context,getString(R.string.movieError),Toast.LENGTH_LONG).show()
+        }
     }
 
      fun onUpdateButton(layout: CardMovieBinding) {
@@ -105,28 +124,28 @@ class MovieFragment : Fragment() {
         }
 
         layout.addMovieButton.setOnClickListener {
-            val title = fragBinding.title.text.toString()
-            val genre = fragBinding.genre.text.toString()
-            val director = fragBinding.director.text.toString()
+            val title = layout.title.text.toString()
+            val genre = layout.genre.text.toString()
+            val director = layout.director.text.toString()
             val day = datePicker.dayOfMonth
             val month = datePicker.month + 1
             val year = datePicker.year
-            if (fragBinding.title.text.isEmpty()) {
+            if (layout.title.text.isEmpty()) {
                 val toast = Toast.makeText(context,R.string.enter_movie_title,Toast.LENGTH_SHORT)
                 toast.show()
             }
-            else if (fragBinding.genre.text.isEmpty()) {
+            else if (layout.genre.text.isEmpty()) {
                 val toast = Toast.makeText(context,R.string.enter_movie_genre,Toast.LENGTH_SHORT)
                 toast.show()
             }
-            else if (fragBinding.director.text.isEmpty()) {
+            else if (layout.director.text.isEmpty()) {
                 val toast = Toast.makeText(context,R.string.enter_movie_director,Toast.LENGTH_SHORT)
                 toast.show()
             }
             else {
-                val toast = Toast.makeText(context,fragBinding.title.text.toString() + " added!",Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(context,layout.title.text.toString() + " added!",Toast.LENGTH_SHORT)
                 toast.show()
-                app.movies.create(MovieListModel(title = title, genre = genre,director = director, day = day, month = month, year = year, image = imageMovie))
+                movieViewModel.addMovie(MovieListModel(title = title, genre = genre,director = director, day = day, month = month, year = year, image = imageMovie))
             }
 
         }
@@ -162,5 +181,6 @@ class MovieFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        //val movieViewModel = ViewModelProvider(this).get(MovieListViewModel::class.java)
     }
 }
