@@ -7,9 +7,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.net.Uri
-import androidx.fragment.app.FragmentActivity
 import com.mymovielist.R
-import com.mymovielist.fragments.MovieFragment
+import com.mymovielist.ui.movie.MovieFragment
 import java.io.IOException
 
 

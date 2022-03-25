@@ -8,8 +8,7 @@ import android.R
 import androidx.lifecycle.Transformations.map
 
 import com.google.android.gms.maps.SupportMapFragment
-
-
+import com.mymovielist.models.MovieManager
 
 
 class MyMovieListApp : Application() {
@@ -18,8 +17,8 @@ class MyMovieListApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        movies = MovieJSONStore(applicationContext)
-
+        //movies = MovieJSONStore(applicationContext)
+        //movies = MovieManager()
         Timber.plant(Timber.DebugTree())
         Timber.i("My Movie List has started")
 

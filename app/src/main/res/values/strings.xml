@@ -1,4 +1,7 @@
 <resources>
+    <string name="moviesNotFound">No Movies yet...\nGo add a movie</string>
+    <string name="movieError">Error : Couldn\'t add a movie...</string>
+
     <string name="MovieList">Movie Catalogue</string>
     <string name="AddMovie">Add Movie</string>
 
