@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.mymovielist.fragments.MapFragment"
+        android:name="com.mymovielist.ui.maps.MapFragment"
         android:label="@string/movieMap"
         tools:layout="@layout/fragment_map" >
         <action

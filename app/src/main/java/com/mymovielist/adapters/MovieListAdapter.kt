@@ -1,22 +1,12 @@
 package com.mymovielist.adapters
 
-import android.app.Application
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.mymovielist.R
 import com.mymovielist.databinding.CardMovieBinding
-import com.mymovielist.helpers.readImageFromPath
-import com.mymovielist.main.MyMovieListApp
-import com.mymovielist.models.MovieJSONStore
-import org.jetbrains.anko.toast
+import com.mymovielist.utils.readImageFromPath
 
 import com.mymovielist.models.MovieListModel
-import com.mymovielist.models.MovieListStore
-import com.mymovielist.ui.movieList.MovieListFragment
-import timber.log.Timber
 
 interface MovieClickListener {
     fun onMovieClick(movie: MovieListModel)
