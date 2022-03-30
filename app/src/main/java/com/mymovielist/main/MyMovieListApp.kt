@@ -1,7 +1,7 @@
 package com.mymovielist.main
 
 import android.app.Application
-import com.mymovielist.models.MovieJSONStore
+
 import com.mymovielist.models.MovieListStore
 import timber.log.Timber
 import android.R

@@ -12,12 +12,11 @@ import com.mymovielist.databinding.FragmentMovieBinding
 import com.mymovielist.main.MyMovieListApp
 import com.mymovielist.R
 import com.mymovielist.databinding.CardMovieBinding
-import com.mymovielist.helpers.readImage
-import com.mymovielist.helpers.showImagePicker
+import com.mymovielist.utils.readImage
+import com.mymovielist.utils.showImagePicker
 import java.util.*
 import com.mymovielist.models.MovieListModel
 import androidx.lifecycle.Observer
-import com.mymovielist.ui.movieList.MovieListViewModel
 
 
 class MovieFragment : Fragment() {

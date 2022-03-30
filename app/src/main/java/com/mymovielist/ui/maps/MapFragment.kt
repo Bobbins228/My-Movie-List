@@ -1,4 +1,4 @@
-package com.mymovielist.fragments
+package com.mymovielist.ui.maps
 
 import androidx.fragment.app.Fragment
 

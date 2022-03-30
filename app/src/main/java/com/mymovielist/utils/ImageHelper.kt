@@ -1,4 +1,4 @@
-package com.mymovielist.helpers
+package com.mymovielist.utils
 
 import android.app.Activity
 import android.content.Context
