@@ -21,7 +21,7 @@ import com.my_movie_list.models.Movie
 import com.my_movie_list.models.MoviesRepository
 import com.my_movie_list.ui.detail.*
 
-class MovieListFragment : Fragment(), MovieClickListener{
+class MovieListFragment : Fragment(), MovieClickListener {
     private lateinit var popularMoviesAdapter: MoviesAdapter
     private lateinit var popularMoviesLayoutMgr: LinearLayoutManager
 
