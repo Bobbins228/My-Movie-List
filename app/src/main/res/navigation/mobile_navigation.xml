@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_movieList">
+
+    <fragment
+        android:id="@+id/nav_movieList"
+        android:name="com.my_movie_list.ui.movieList.MovieListFragment"
+        android:label="@string/menu_movieList"
+        tools:layout="@layout/fragment_movielist" >
+        <action
+            android:id="@+id/action_nav_movieList_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_nav_movieList_to_nav_moviesNearYou"
+            app:destination="@id/nav_moviesNearYou"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_nav_movieList_to_nav_slideshow"
+            app:destination="@id/nav_slideshow"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_moviesNearYou"
+        android:name="com.my_movie_list.ui.Maps.MapsFragment"
+        android:label="@string/menu_movies_near_you"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_moviesNearYou_to_nav_movieList"
+            app:destination="@id/nav_movieList"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_nav_moviesNearYou_to_nav_slideshow"
+            app:destination="@id/nav_slideshow"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.my_movie_list.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_nav_moviesNearYou"
+            app:destination="@id/nav_moviesNearYou"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_nav_slideshow_to_nav_movieList"
+            app:destination="@id/nav_movieList"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.my_movie_list.ui.detail.MovieDetailFragment"
+        android:label="movie_detail_fragment"
+        tools:layout="@layout/movie_detail_fragment" >
+        <action
+            android:id="@+id/action_movieDetailFragment_to_nav_movieList"
+            app:destination="@id/nav_movieList"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+</navigation>
