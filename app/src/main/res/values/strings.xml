@@ -10,6 +10,8 @@
     <string name="menu_movies_near_you">Movies near you</string>
     <string name="menu_movieList">Movie Catalog</string>
     <string name="menu_slideshow">Slideshow</string>
+    <!-- Maps -->
+    <string name="maps_api_key"></string>
 
     <!-- START Firebase Resources-->
 

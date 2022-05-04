@@ -42,6 +42,8 @@ android {
 }
 
 dependencies {
+    //Maps
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
     //T MDB STUFF
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
