@@ -46,18 +46,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="46" />
+                            <option name="x" value="174" />
+                            <option name="y" value="325" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_nav_movieList_to_movieDetailFragment">
+                            <entry key="action_nav_movieList_to_mapsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_nav_movieList_to_nav_moviesNearYou">
+                            <entry key="action_nav_movieList_to_movieDetailFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -78,17 +78,22 @@
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="12" />
-                            <option name="y" value="368" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_nav_moviesNearYou_to_nav_movieList">
+                            <entry key="action_mapsFragment_to_movieDetailFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_nav_moviesNearYou_to_nav_slideshow">
+                            <entry key="action_mapsFragment_to_nav_movieList">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_mapsFragment_to_nav_slideshow">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -109,12 +114,12 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_nav_slideshow_to_nav_movieList">
+                            <entry key="action_nav_slideshow_to_mapsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_nav_slideshow_to_nav_moviesNearYou">
+                            <entry key="action_nav_slideshow_to_nav_movieList">
                               <value>
                                 <LayoutPositions />
                               </value>

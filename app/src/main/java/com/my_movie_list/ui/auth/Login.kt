@@ -15,6 +15,7 @@ import com.my_movie_list.databinding.LoginFragmentBinding
 import timber.log.Timber
 import androidx.lifecycle.Observer
 import com.my_movie_list.main.MyMovieListApp
+import com.my_movie_list.ui.home.Home
 import com.my_movie_list.ui.movieList.MovieListFragment
 
 class Login : AppCompatActivity() {
@@ -43,7 +44,7 @@ class Login : AppCompatActivity() {
         loginRegisterViewModel = ViewModelProvider(this).get(LoginRegisterViewModel::class.java)
         loginRegisterViewModel.liveFirebaseUser.observe(this, Observer
         { firebaseUser -> if (firebaseUser != null)
-            startActivity(Intent(this, MyMovieListApp::class.java)) })
+            startActivity(Intent(this, Home::class.java)) })
 
         loginRegisterViewModel.firebaseAuthManager.errorStatus.observe(this, Observer
         { status -> checkStatus(status) })
