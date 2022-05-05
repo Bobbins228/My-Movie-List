@@ -12,11 +12,19 @@
             android:id="@+id/nav_moviesNearYou"
             android:icon="@drawable/ic_baseline_theaters_24"
             android:title="@string/menu_movies_near_you" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
     </group>
+    <item android:title="Ratings">
+        <menu>
+            <item
+                android:id="@+id/nav_rating"
+                android:icon="@drawable/ic_baseline_add_24"
+                android:title="@string/menu_rating" />
+            <item
+                android:id="@+id/nav_ratingList"
+                android:icon="@drawable/ic_baseline_star_24"
+                android:title="@string/menu_ratingList" />
+        </menu>
+    </item>
     <item android:title="Access Control">
         <menu>
             <item

@@ -12,10 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseUser
 import com.my_movie_list.R
@@ -27,6 +24,8 @@ import com.my_movie_list.ui.auth.Login
 import com.my_movie_list.ui.helpers.checkLocationPermissions
 import com.my_movie_list.ui.helpers.isPermissionGranted
 import timber.log.Timber
+import android.view.*
+import androidx.navigation.ui.NavigationUI
 
 class Home : AppCompatActivity(){
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -53,7 +52,7 @@ class Home : AppCompatActivity(){
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_movieList, R.id.nav_moviesNearYou, R.id.nav_slideshow
+                R.id.nav_movieList, R.id.nav_moviesNearYou, R.id.nav_rating ,R.id.nav_ratingList
             ), drawerLayout
         )
 
@@ -101,13 +100,6 @@ class Home : AppCompatActivity(){
         var headerView = binding.navView.getHeaderView(0)
         navHeaderBinding = NavHeaderMainBinding.bind(headerView)
         navHeaderBinding.navHeaderEmail.text = currentUser.email
-    }
-
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
     }
 
     override fun onSupportNavigateUp(): Boolean {

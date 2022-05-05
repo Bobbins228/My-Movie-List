@@ -2,11 +2,7 @@ package com.my_movie_list.models
 
 import timber.log.Timber
 
-var lastId = 0L
 
-internal fun getId(): Long {
-    return lastId++
-}
 
 object MovieManager : MovieStore {
 

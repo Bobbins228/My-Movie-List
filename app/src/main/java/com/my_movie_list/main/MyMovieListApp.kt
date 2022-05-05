@@ -22,11 +22,12 @@ import com.my_movie_list.R
 import com.my_movie_list.databinding.ActivityMainBinding
 import com.my_movie_list.databinding.NavHeaderMainBinding
 import com.my_movie_list.models.MoviesRepository
+import com.my_movie_list.models.RatingModel
 import com.my_movie_list.ui.auth.LoggedInViewModel
 import com.my_movie_list.ui.auth.Login
 
 class MyMovieListApp : Application() {
-
+    lateinit var ratings: RatingModel
 
     override fun onCreate() {
         super.onCreate()

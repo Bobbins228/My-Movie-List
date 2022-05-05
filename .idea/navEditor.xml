@@ -62,7 +62,17 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_nav_movieList_to_nav_slideshow">
+                            <entry key="action_nav_movieList_to_nav_ratingList">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_nav_movieList_to_ratingFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_nav_movieList_to_ratingListFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -93,7 +103,17 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_mapsFragment_to_nav_slideshow">
+                            <entry key="action_mapsFragment_to_nav_ratingList">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_nav_moviesNearYou_to_ratingFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_nav_moviesNearYou_to_ratingListFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -103,7 +123,43 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="nav_slideshow">
+                  <entry key="nav_rating">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_ratingFragment_to_nav_movieList">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_ratingFragment_to_nav_moviesNearYou">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_ratingFragment_to_nav_ratingList">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_ratingFragment_to_ratingListFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="nav_ratingList">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -114,17 +170,39 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_nav_slideshow_to_mapsFragment">
+                            <entry key="action_ratingListFragment_to_nav_movieList">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_nav_slideshow_to_nav_movieList">
+                            <entry key="action_ratingListFragment_to_nav_moviesNearYou">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_ratingListFragment_to_nav_ratingList">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_ratingListFragment_to_ratingFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="ratingDetail">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-71" />
+                            <option name="y" value="369" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
