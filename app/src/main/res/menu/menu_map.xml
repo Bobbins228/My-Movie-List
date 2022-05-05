@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/nav_moviesNearYou"
+        android:id="@+id/nav_movieList"
         android:orderInCategory="100"
-        android:title="@string/menu_movies_near_you"
+        android:title="@string/menu_movieList"
         app:showAsAction="never" />
     <item
         android:id="@+id/nav_rating"

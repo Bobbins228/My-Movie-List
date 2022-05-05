@@ -9,7 +9,22 @@
 
     <string name="menu_movies_near_you">Movies near you</string>
     <string name="menu_movieList">Movie Catalog</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_ratingList">Ratings</string>
+    <string name="ratingsNotFound">No Ratings yet... Go add a rating!</string>
+    <string name="menu_rating">Add a rating</string>
+    <string name="enter_movie_title">Please Enter a Movie Title</string>
+    <string name="hint_movieTitle">Movie Title</string>
+    <string name="enter_rating_content">Please write your review</string>
+    <string name="hint_Content">Movie Review</string>
+    <string name="add_rating">Add a rating</string>
+    <string name="button_addRating">Add rating</string>
+    <string name="ratingError">Error : Couldn\'t add a rating...</string>
+    <string name="enter_rating">Please enter a number between 1 and 10</string>
+    <string name="title_view">Title: </string>
+    <string name="review_view">Review: </string>
+    <string name="rating_view">Rating: </string>
+    <string name="rating_details">Rating Details</string>
+
     <!-- Maps -->
     <string name="maps_api_key"></string>
 

@@ -6,10 +6,20 @@
         <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.1945" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.17074275362318841" />
+        <entry key="app/src/main/res/layout/card_rating.xml" value="0.17921146953405018" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.12962962962962962" />
         <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.25886524822695034" />
+        <entry key="app/src/main/res/layout/item_movie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.25886524822695034" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.17074275362318841" />
+        <entry key="app/src/main/res/layout/rating_detail_fragment.xml" value="0.22282608695652173" />
+        <entry key="app/src/main/res/layout/rating_fragment.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/rating_list_fragment.xml" value="0.25886524822695034" />
+        <entry key="app/src/main/res/menu/menu_map.xml" value="0.2994791666666667" />
+        <entry key="app/src/main/res/menu/menu_movie_list.xml" value="0.45555555555555555" />
+        <entry key="app/src/main/res/menu/menu_ratinglist.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/menu/nav_drawer_menu.xml" value="0.5156462585034014" />
+        <entry key="app/src/main/res/menu/rating_menu.xml" value="0.26666666666666666" />
       </map>
     </option>
   </component>

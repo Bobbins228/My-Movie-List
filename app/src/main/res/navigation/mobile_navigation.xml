@@ -16,28 +16,23 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
         <action
-            android:id="@+id/action_nav_movieList_to_nav_slideshow"
-            app:destination="@id/nav_slideshow"
+            android:id="@+id/action_nav_movieList_to_nav_ratingList"
+            app:destination="@id/nav_ratingList"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
         <action
             android:id="@+id/action_nav_movieList_to_mapsFragment"
             app:destination="@id/nav_moviesNearYou" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.my_movie_list.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" >
         <action
-            android:id="@+id/action_nav_slideshow_to_nav_movieList"
-            app:destination="@id/nav_movieList"
+            android:id="@+id/action_nav_movieList_to_ratingListFragment"
+            app:destination="@id/ratingListFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
         <action
-            android:id="@+id/action_nav_slideshow_to_mapsFragment"
-            app:destination="@id/nav_moviesNearYou" />
+            android:id="@+id/action_nav_movieList_to_ratingFragment"
+            app:destination="@id/nav_rating"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
@@ -73,9 +68,89 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
         <action
-            android:id="@+id/action_mapsFragment_to_nav_slideshow"
-            app:destination="@id/nav_slideshow"
+            android:id="@+id/action_mapsFragment_to_nav_ratingList"
+            app:destination="@id/nav_ratingList"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_nav_moviesNearYou_to_ratingListFragment"
+            app:destination="@id/ratingListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_nav_moviesNearYou_to_ratingFragment"
+            app:destination="@id/nav_rating"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_ratingList"
+        android:name="com.my_movie_list.ui.ratingList.RatingListFragment"
+        android:label="@string/menu_ratingList"
+        tools:layout="@layout/rating_list_fragment" >
+        <action
+            android:id="@+id/action_ratingListFragment_to_nav_movieList"
+            app:destination="@id/nav_movieList"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_ratingListFragment_to_nav_moviesNearYou"
+            app:destination="@id/nav_moviesNearYou"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_ratingListFragment_to_nav_ratingList"
+            app:destination="@id/nav_ratingList"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_ratingListFragment_to_ratingFragment"
+            app:destination="@id/nav_rating"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_nav_ratingList_to_ratingDetail"
+            app:destination="@id/ratingDetail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_rating"
+        android:name="com.my_movie_list.ui.rating.RatingFragment"
+        android:label="Rate a movie"
+        tools:layout="@layout/rating_fragment" >
+        <action
+            android:id="@+id/action_ratingFragment_to_nav_ratingList"
+            app:destination="@id/nav_ratingList"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_ratingFragment_to_nav_movieList"
+            app:destination="@id/nav_movieList"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_ratingFragment_to_nav_moviesNearYou"
+            app:destination="@id/nav_moviesNearYou"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_ratingFragment_to_ratingListFragment"
+            app:destination="@id/ratingListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/ratingDetail"
+        android:name="com.my_movie_list.ui.detail.RatingDetail"
+        android:label="@string/rating_details"
+        tools:layout="@layout/rating_detail_fragment" >
+        <action
+            android:id="@+id/action_ratingDetail_to_nav_ratingList"
+            app:destination="@id/nav_ratingList"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <argument
+            android:name="ratingid"
+            app:argType="long" />
     </fragment>
 </navigation>
