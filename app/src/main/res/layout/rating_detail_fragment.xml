@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        android:text="@{Integer.toString(ratingvm.observableRating.rating)}"
+        android:text="@{Integer.toString(ratingvm.observableRating.ratingNumber)}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"
@@ -97,23 +97,23 @@
         app:layout_constraintVertical_bias="0.618" />
 
     <Button
-        android:id="@+id/editDonationButton"
+        android:id="@+id/editRatingButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/deleteDonationButton"
+        app:layout_constraintEnd_toStartOf="@+id/deleteRatingButton"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/deleteDonationButton"
+        android:id="@+id/deleteRatingButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editDonationButton" />
+        app:layout_constraintStart_toEndOf="@+id/editRatingButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     </layout>
