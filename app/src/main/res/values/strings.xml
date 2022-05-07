@@ -25,6 +25,8 @@
     <string name="rating_view">Rating: </string>
     <string name="rating_details">Rating Details</string>
 
+    <string name="messageLoading">Loading...</string>
+
     <!-- Maps -->
     <string name="maps_api_key"></string>
 

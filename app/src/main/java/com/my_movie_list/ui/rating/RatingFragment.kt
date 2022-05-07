@@ -8,6 +8,7 @@ import android.view.*
 import android.widget.NumberPicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.my_movie_list.R
@@ -18,6 +19,7 @@ import com.my_movie_list.models.RatingModel
 import java.util.*
 import androidx.lifecycle.Observer
 import com.android.volley.VolleyLog.v
+import com.my_movie_list.ui.auth.LoggedInViewModel
 import timber.log.Timber.Forest.v
 import java.time.LocalDate
 import java.time.LocalDate.now
@@ -31,6 +33,8 @@ class RatingFragment : Fragment() {
     private val fragCardBinding get() = _fragCardBinding!!
     //Add view model
     private lateinit var ratingViewModel: RatingViewModel
+
+    private val loggedInViewModel : LoggedInViewModel by activityViewModels()
 
     //lateinit var navController: NavController
 
@@ -89,7 +93,6 @@ class RatingFragment : Fragment() {
 
         layout.addRatingButton.setOnClickListener {
             val msg = Toast.makeText(context,R.string.enter_rating, Toast.LENGTH_SHORT)
-            val dateToday = LocalDate.now()
             val title = fragBinding.title.text.toString()
             val contentText = layout.ratingContent.text.toString()
             val ratingNumber = layout.numberPicker.value
@@ -102,7 +105,7 @@ class RatingFragment : Fragment() {
                 toast.show()
             }
             else {
-                ratingViewModel.addRating(RatingModel(title = title, content = contentText, rating = ratingNumber,  date = dateToday))
+                ratingViewModel.addRating(loggedInViewModel.liveFirebaseUser,RatingModel(title = title, content = contentText, ratingNumber = ratingNumber, email = loggedInViewModel.liveFirebaseUser.value?.email!!))
                 val toast = Toast.makeText(context,layout.title.text.toString() + " added!", Toast.LENGTH_SHORT)
                 toast.show()
             }
