@@ -3,6 +3,7 @@ package com.my_movie_list.ui.home
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.location.Location
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -16,7 +17,6 @@ import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseUser
 import com.my_movie_list.R
-import com.my_movie_list.databinding.ActivityMainBinding
 import com.my_movie_list.databinding.NavHeaderMainBinding
 import com.my_movie_list.ui.maps.MapsViewModel
 import com.my_movie_list.ui.auth.LoggedInViewModel
@@ -25,11 +25,20 @@ import com.my_movie_list.ui.helpers.checkLocationPermissions
 import com.my_movie_list.ui.helpers.isPermissionGranted
 import timber.log.Timber
 import android.view.*
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.ui.NavigationUI
+import com.my_movie_list.databinding.HomeBinding
+import com.my_movie_list.firebase.FirebaseImageManager
+import com.my_movie_list.utils.customTransformation
+import com.my_movie_list.utils.readImageUri
+import com.my_movie_list.utils.showImagePicker
+import com.squareup.picasso.Picasso
 
 class Home : AppCompatActivity(){
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: HomeBinding
 
     private lateinit var loggedInViewModel : LoggedInViewModel
     private lateinit var navHeaderBinding : NavHeaderMainBinding
@@ -37,10 +46,14 @@ class Home : AppCompatActivity(){
 
     private val mapsViewModel : MapsViewModel by viewModels()
 
+    private lateinit var intentLauncher : ActivityResultLauncher<Intent>
+
+    private lateinit var headerView : View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = HomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
@@ -56,9 +69,12 @@ class Home : AppCompatActivity(){
             ), drawerLayout
         )
 
+        initNavHeader()
+
         if(checkLocationPermissions(this)) {
             mapsViewModel.updateCurrentLocation()
         }
+
 
 
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -80,12 +96,24 @@ class Home : AppCompatActivity(){
         Timber.i("LOC : %s", mapsViewModel.currentLocation.value)
     }
 
+
+
+    private fun initNavHeader() {
+        Timber.i("MML Init Nav Header")
+        headerView = binding.navView.getHeaderView(0)
+        navHeaderBinding = NavHeaderMainBinding.bind(headerView)
+
+        navHeaderBinding.navHeaderImage.setOnClickListener {
+            showImagePicker(intentLauncher)
+        }
+    }
+
     public override fun onStart() {
         super.onStart()
         loggedInViewModel = ViewModelProvider(this).get(LoggedInViewModel::class.java)
         loggedInViewModel.liveFirebaseUser.observe(this, Observer { firebaseUser ->
             if (firebaseUser != null)
-                updateNavHeader(loggedInViewModel.liveFirebaseUser.value!!)
+                updateNavHeader(firebaseUser)
         })
 
         loggedInViewModel.loggedOut.observe(this, Observer { loggedout ->
@@ -94,12 +122,63 @@ class Home : AppCompatActivity(){
             }
         })
 
+        registerImagePickerCallback()
+
+
+    }
+
+    private fun registerImagePickerCallback() {
+        intentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                when(result.resultCode){
+                    RESULT_OK -> {
+                        if (result.data != null) {
+                            Timber.i("MML registerPickerCallback() ${readImageUri(result.resultCode, result.data).toString()}")
+                            FirebaseImageManager
+                                .updateUserImage(loggedInViewModel.liveFirebaseUser.value!!.uid,
+                                    readImageUri(result.resultCode, result.data),
+                                    navHeaderBinding.navHeaderImage,
+                                    true)
+                        } // end of if
+                    }
+                    RESULT_CANCELED -> { } else -> { }
+                }
+            }
     }
 
     private fun updateNavHeader(currentUser: FirebaseUser) {
-        var headerView = binding.navView.getHeaderView(0)
-        navHeaderBinding = NavHeaderMainBinding.bind(headerView)
+        FirebaseImageManager.imageUri.observe(this, { result ->
+            if(result == Uri.EMPTY) {
+                Timber.i("MML NO Existing imageUri")
+                if (currentUser.photoUrl != null) {
+                    //if you're a google user
+                    FirebaseImageManager.updateUserImage(
+                        currentUser.uid,
+                        currentUser.photoUrl,
+                        navHeaderBinding.navHeaderImage,
+                        false)
+                }
+                else
+                {
+                    Timber.i("MML Loading Existing Default imageUri")
+                    FirebaseImageManager.updateDefaultImage(
+                        currentUser.uid,
+                        R.mipmap.ic_launcher_mml_round,
+                        navHeaderBinding.navHeaderImage)
+                }
+            }
+            else // load existing image from firebase
+            {
+                Timber.i("MML Loading Existing imageUri")
+                FirebaseImageManager.updateUserImage(
+                    currentUser.uid,
+                    FirebaseImageManager.imageUri.value,
+                    navHeaderBinding.navHeaderImage, false)
+            }
+        })
         navHeaderBinding.navHeaderEmail.text = currentUser.email
+        if(currentUser.displayName != null)
+            navHeaderBinding.navHeaderName.text = currentUser.displayName
     }
 
     override fun onSupportNavigateUp(): Boolean {

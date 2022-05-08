@@ -1,8 +1,10 @@
-package com.my_movie_list.models
+package com.my_movie_list.firebase
 
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.my_movie_list.models.RatingModel
+import com.my_movie_list.models.RatingStore
 import timber.log.Timber
 
 object FirebaseDBManager : RatingStore {
@@ -10,7 +12,25 @@ object FirebaseDBManager : RatingStore {
     var database: DatabaseReference = FirebaseDatabase.getInstance().reference
 
     override fun findAll(ratingList: MutableLiveData<List<RatingModel>>) {
-        TODO("Not yet implemented")
+        database.child("ratings")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    Timber.i("Firebase Rating error : ${error.message}")
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val localList = ArrayList<RatingModel>()
+                    val children = snapshot.children
+                    children.forEach {
+                        val rating = it.getValue(RatingModel::class.java)
+                        localList.add(rating!!)
+                    }
+                    database.child("ratings")
+                        .removeEventListener(this)
+
+                    ratingList.value = localList
+                }
+            })
     }
 
     override fun findAll(userid: String, ratingList: MutableLiveData<List<RatingModel>>) {
@@ -84,5 +104,26 @@ object FirebaseDBManager : RatingStore {
         childUpdate["user-ratings/$userid/$ratingid"] = ratingValues
 
         database.updateChildren(childUpdate)
+    }
+
+    fun updateImageRef(userid: String,imageUri: String) {
+
+        val userRatings = database.child("user-ratings").child(userid)
+        val allRatings = database.child("ratings")
+
+        userRatings.addListenerForSingleValueEvent(
+            object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {}
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    snapshot.children.forEach {
+                        //Update Users imageUri
+                        it.ref.child("profilepic").setValue(imageUri)
+                        //Update all donations that match 'it'
+                        val rating = it.getValue(RatingModel::class.java)
+                        allRatings.child(rating!!.uid!!)
+                            .child("profilepic").setValue(imageUri)
+                    }
+                }
+            })
     }
 }

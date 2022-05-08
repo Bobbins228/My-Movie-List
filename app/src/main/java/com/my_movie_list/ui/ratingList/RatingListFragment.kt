@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -94,6 +95,16 @@ class RatingListFragment : Fragment(), RatingClickListener {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_ratinglist, menu)
+
+        val item = menu.findItem(R.id.toggleRatings) as MenuItem
+        item.setActionView(R.layout.togglebutton_layout)
+        val toggleRatings: SwitchCompat = item.actionView.findViewById(R.id.toggleButton)
+        toggleRatings.isChecked = false
+
+        toggleRatings.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) ratingListViewModel.loadAll()
+            else ratingListViewModel.load()
+        }
         super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -103,7 +114,7 @@ class RatingListFragment : Fragment(), RatingClickListener {
     }
 
     private fun render(ratingList: ArrayList<RatingModel>) {
-        fragBinding.recyclerView.adapter = RatingAdapter(ratingList,this)
+        fragBinding.recyclerView.adapter = RatingAdapter(ratingList,this, ratingListViewModel.readOnly.value!!)
         if (ratingList.isEmpty()) {
             fragBinding.recyclerView.visibility = View.GONE
             fragBinding.ratingsNotFound.visibility = View.VISIBLE
@@ -115,7 +126,9 @@ class RatingListFragment : Fragment(), RatingClickListener {
 
     override fun onRatingClick(rating: RatingModel) {
         val action = RatingListFragmentDirections.actionNavRatingListToRatingDetail(rating.uid!!)
-        findNavController().navigate(action)
+
+        if(!ratingListViewModel.readOnly.value!!)
+            findNavController().navigate(action)
     }
 
     companion object {
@@ -130,7 +143,10 @@ class RatingListFragment : Fragment(), RatingClickListener {
         fragBinding.swiperefresh.setOnRefreshListener {
             fragBinding.swiperefresh.isRefreshing = true
             showLoader(loader,"Downloading Donations")
-            ratingListViewModel.load()
+            if(ratingListViewModel.readOnly.value!!)
+                ratingListViewModel.loadAll()
+            else
+                ratingListViewModel.load()
         }
     }
 
