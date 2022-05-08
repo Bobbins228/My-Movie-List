@@ -65,4 +65,7 @@
 
     <style name="Theme.MyMovieList.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ThemeOverlay.MyLightEditText" parent="ThemeOverlay.AppCompat.Dark"/>
+
+
 </resources>
