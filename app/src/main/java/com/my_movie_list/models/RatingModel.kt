@@ -15,7 +15,9 @@ data class RatingModel (
         var content: String = "",
         var ratingNumber: Int = 0,
         var profilepic: String ="",
-        var email: String? = "joe@bloggs.com")
+        var email: String? = "joe@bloggs.com",
+        var latitude: Double = 0.0,
+        var longitude: Double = 0.0)
         : Parcelable
 {
         @Exclude
@@ -26,7 +28,9 @@ data class RatingModel (
                         "content" to content,
                         "ratingNumber" to ratingNumber,
                         "profilepic" to profilepic,
-                        "email" to email
+                        "email" to email,
+                        "latitude" to latitude,
+                        "longitude" to longitude
                 )
         }
 }
