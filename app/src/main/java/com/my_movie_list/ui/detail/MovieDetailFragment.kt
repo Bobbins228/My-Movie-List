@@ -46,7 +46,8 @@ class MovieDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
+        _binding = MovieDetailFragmentBinding.inflate(inflater, container, false)
+        val root = binding.root
         movieDetailsViewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
         movieDetailsViewModel.observableMovie.observe(viewLifecycleOwner, Observer{ render() })
 
@@ -63,7 +64,7 @@ class MovieDetailFragment : Fragment() {
          */
         Toast.makeText(context,"Movie ID Selected : ${args.id}",Toast.LENGTH_LONG).show()
         //
-        return inflater.inflate(R.layout.movie_detail_fragment, container, false)
+        return root
     }
 
     private fun populateDetails(extras: Bundle) {
@@ -95,7 +96,7 @@ class MovieDetailFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        //movieDetailsViewModel.getMovie(args.id)
+        movieDetailsViewModel.getMovie(args.id)
     }
     private fun render(){
         binding.movievm = movieDetailsViewModel

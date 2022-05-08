@@ -30,7 +30,7 @@ class MoviesAdapter(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movies[holder.adapterPosition]
-        holder.bind(movie,listener)
+        holder.bind(movie)
     }
 
     fun appendMovies(movies: List<Movie>) {
@@ -45,14 +45,16 @@ class MoviesAdapter(
 
         private val poster: ImageView = itemView.findViewById(R.id.item_movie_poster)
 
-        fun bind(movie: Movie, listener: MovieClickListener) {
+        fun bind(movie: Movie) {
             Glide.with(itemView)
                 .load("https://image.tmdb.org/t/p/w342${movie.posterPath}")
                 .transform(CenterCrop())
                 .into(poster)
+            binding.root.tag = movie
             binding.movie = movie
-            binding.root.setOnClickListener { listener.onMovieClick(movie) }
             binding.executePendingBindings()
+            binding.root.setOnClickListener { listener.onMovieClick(movie) }
+
         }
     }
 }

@@ -44,7 +44,7 @@ class RatingDetail : Fragment() {
 
         _fragBinding = RatingDetailFragmentBinding.inflate(inflater, container, false)
         val root = fragBinding.root
-        ratingDetailViewModel = ViewModelProvider(this)[RatingDetailViewModel::class.java]
+        ratingDetailViewModel = ViewModelProvider(this).get(RatingDetailViewModel::class.java)
         ratingDetailViewModel.observableRating.observe(viewLifecycleOwner, Observer { render() })
 
 
@@ -80,12 +80,5 @@ class RatingDetail : Fragment() {
         _fragBinding = null
     }
 
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RatingDetailViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

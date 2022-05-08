@@ -64,4 +64,5 @@
     <style name="Theme.MyMovieList.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MyMovieList.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
