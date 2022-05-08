@@ -1,5 +1,7 @@
 package com.my_movie_list.ui.detail
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -30,9 +32,11 @@ class RatingDetailViewModel : ViewModel() {
         try {
             FirebaseDBManager.update(userid, id, rating)
             Timber.i("Detail update() Success : $rating")
+            Log.i("On success","Detail update() Success: $rating")
         }
         catch (e: Exception) {
             Timber.i("Detail update() Error : $e.message")
+            Log.e("On Fail","Detail update() Fail: $rating")
         }
     }
 }

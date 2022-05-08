@@ -26,10 +26,10 @@ class RatingListViewModel : ViewModel() {
        try {
            readOnly.value = true
            FirebaseDBManager.findAll(ratingList)
-           Timber.i("Report LoadAll Success : ${ratingList.value.toString()}")
+           Timber.i("RatingList LoadAll Success : ${ratingList.value.toString()}")
        }
        catch (e: Exception) {
-           Timber.i("Report LoadAll Error : $e.message")
+           Timber.i("RatingList LoadAll Error : $e.message")
        }
    }
 

@@ -6,8 +6,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="change_theme">Change Theme</string>
 
-    <string name="menu_movies_near_you">Movies near you</string>
+    <string name="menu_movies_near_you">Ratings near you</string>
     <string name="menu_movieList">Movie Catalog</string>
     <string name="menu_ratingList">Ratings</string>
     <string name="ratingsNotFound">No Ratings yet... Go add a rating!</string>

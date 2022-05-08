@@ -21,8 +21,9 @@ class MapsViewModel(application: Application) : AndroidViewModel(application) {
     var locationClient : FusedLocationProviderClient
 
     val locationRequest = LocationRequest.create().apply {
-        interval = 10000
-        fastestInterval = 5000
+        //This interval roughly equals 30 seconds
+        interval = 100000
+        fastestInterval = 50000
         priority = LocationRequest.PRIORITY_HIGH_ACCURACY
     }
     val locationCallback = object : LocationCallback() {
