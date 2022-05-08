@@ -49,9 +49,13 @@ class RatingDetail : Fragment() {
 
 
         fragBinding.editRatingButton.setOnClickListener {
-            ratingDetailViewModel.updateRating(loggedInViewModel.liveFirebaseUser.value?.uid!!, args.ratingid, fragBinding.ratingvm?.observableRating!!.value!!)
+            ratingDetailViewModel.updateRating(loggedInViewModel.liveFirebaseUser.value?.uid!!,
+                args.ratingid, fragBinding.ratingvm?.observableRating!!.value!!)
+            //Force Reload of list to guarantee refresh
             ratingListViewModel.load()
             findNavController().navigateUp()
+            //findNavController().popBackStack()
+
         }
 
         fragBinding.deleteRatingButton.setOnClickListener {
