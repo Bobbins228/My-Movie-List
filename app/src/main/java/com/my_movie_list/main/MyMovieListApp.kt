@@ -19,7 +19,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.google.firebase.auth.FirebaseUser
 import com.my_movie_list.R
-import com.my_movie_list.databinding.ActivityMainBinding
 import com.my_movie_list.databinding.NavHeaderMainBinding
 import com.my_movie_list.models.MoviesRepository
 import com.my_movie_list.models.RatingModel

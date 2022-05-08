@@ -3,7 +3,7 @@ package com.my_movie_list.ui.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.my_movie_list.models.FirebaseDBManager
+import com.my_movie_list.firebase.FirebaseDBManager
 import com.my_movie_list.models.RatingModel
 import timber.log.Timber
 import java.lang.Exception

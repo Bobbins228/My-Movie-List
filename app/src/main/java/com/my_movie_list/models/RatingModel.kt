@@ -14,6 +14,7 @@ data class RatingModel (
         var title: String = "",
         var content: String = "",
         var ratingNumber: Int = 0,
+        var profilepic: String ="",
         var email: String? = "joe@bloggs.com")
         : Parcelable
 {
@@ -24,6 +25,7 @@ data class RatingModel (
                         "title" to title,
                         "content" to content,
                         "ratingNumber" to ratingNumber,
+                        "profilepic" to profilepic,
                         "email" to email
                 )
         }
