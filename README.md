@@ -21,3 +21,4 @@ A user can view their ratings on the map and toggle to show all ratings on the m
 # Testing
 In order to test this application a google maps [API key](https://developers.google.com/maps/documentation/android-sdk/get-api-key) is required.<br>
 A TMDB [API key](https://www.themoviedb.org/documentation/api) is also required.
+Note: I have set the refresh for google maps to be around 30 seconds. This is to allow a person to read a movie title before the maps activity gets refreshed. This would only become a problem if you are using an emulator as on a real phone you won't make it from Ireland to India in 30 seconds so the app can afford to have a small delay.
