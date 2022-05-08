@@ -34,7 +34,6 @@ import com.my_movie_list.firebase.FirebaseImageManager
 import com.my_movie_list.utils.customTransformation
 import com.my_movie_list.utils.readImageUri
 import com.my_movie_list.utils.showImagePicker
-import com.squareup.picasso.Picasso
 
 class Home : AppCompatActivity(){
     private lateinit var appBarConfiguration: AppBarConfiguration

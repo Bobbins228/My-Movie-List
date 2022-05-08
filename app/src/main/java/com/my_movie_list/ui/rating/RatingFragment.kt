@@ -20,6 +20,7 @@ import java.util.*
 import androidx.lifecycle.Observer
 import com.android.volley.VolleyLog.v
 import com.my_movie_list.ui.auth.LoggedInViewModel
+import com.my_movie_list.ui.maps.MapsViewModel
 import timber.log.Timber.Forest.v
 import java.time.LocalDate
 import java.time.LocalDate.now
@@ -35,6 +36,9 @@ class RatingFragment : Fragment() {
     private lateinit var ratingViewModel: RatingViewModel
 
     private val loggedInViewModel : LoggedInViewModel by activityViewModels()
+
+
+    private val mapsViewModel: MapsViewModel by activityViewModels()
 
     //lateinit var navController: NavController
 
@@ -105,7 +109,10 @@ class RatingFragment : Fragment() {
                 toast.show()
             }
             else {
-                ratingViewModel.addRating(loggedInViewModel.liveFirebaseUser,RatingModel(title = title, content = contentText, ratingNumber = ratingNumber, email = loggedInViewModel.liveFirebaseUser.value?.email!!))
+                ratingViewModel.addRating(loggedInViewModel.liveFirebaseUser,RatingModel(title = title, content = contentText, ratingNumber = ratingNumber,
+                    email = loggedInViewModel.liveFirebaseUser.value?.email!!,
+                    latitude = mapsViewModel.currentLocation.value!!.latitude,
+                    longitude = mapsViewModel.currentLocation.value!!.longitude))
                 val toast = Toast.makeText(context,layout.title.text.toString() + " added!", Toast.LENGTH_SHORT)
                 toast.show()
             }
